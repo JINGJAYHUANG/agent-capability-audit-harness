@@ -5,6 +5,13 @@ on:
     branches: [main]
     paths:
       - ".release/v*"
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Semantic version without the leading v, for example 0.1.0
+        required: true
+        default: 0.1.0
+        type: string
 
 permissions:
   contents: write
@@ -34,11 +41,18 @@ jobs:
 
       - name: Resolve version
         id: version
+        env:
+          REQUESTED_VERSION: ${{ inputs.version }}
         shell: bash
         run: |
           set -euo pipefail
-          marker="$(ls .release/v* | sort | tail -n1)"
-          version="${marker##*/v}"
+          if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ]; then
+            version="${REQUESTED_VERSION#v}"
+          else
+            marker="$(ls .release/v* | sort | tail -n1)"
+            version="${marker##*/v}"
+          fi
+          [[ "$version" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] || { echo "invalid semantic version: $version" >&2; exit 64; }
           package_version="$(python - <<'PY'
           from pathlib import Path
           import re
@@ -69,8 +83,7 @@ jobs:
           TAG: ${{ steps.version.outputs.tag }}
         run: |
           set -euo pipefail
-          existing="$(gh api "repos/${GITHUB_REPOSITORY}/git/ref/tags/${TAG}" --jq .object.sha 2>/dev/null || true)"
-          if [ -n "$existing" ]; then
+          if existing="$(gh api "repos/${GITHUB_REPOSITORY}/git/ref/tags/${TAG}" --jq .object.sha 2>/dev/null)"; then
             test "$existing" = "$GITHUB_SHA"
           else
             gh api --method POST "repos/${GITHUB_REPOSITORY}/git/refs" \
@@ -85,7 +98,7 @@ jobs:
         run: |
           set -euo pipefail
           rm -rf release-dist build src/*.egg-info
-          mkdir -p release-dist package-root
+          mkdir -p release-dist
           python -m build --wheel --outdir release-dist
           git archive --format=tar --prefix="agent-capability-audit-harness-${VERSION}/" HEAD > release-dist/source.tar
           gzip -n -9 release-dist/source.tar
