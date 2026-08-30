@@ -1,0 +1,28 @@
+name: Bug report
+description: Report a reproducible defect in policy, evidence, CLI, or reporting behavior.
+title: "bug: "
+labels: [bug]
+body:
+  - type: textarea
+    attributes:
+      label: Reproduction
+      description: Use synthetic data only. Include the smallest contract, task, and observation needed.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Expected and actual result
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: Version
+      placeholder: v0.1.0
+    validations:
+      required: true
+  - type: checkboxes
+    attributes:
+      label: Public boundary
+      options:
+        - label: I removed credentials, private paths, personal data, and production logs.
+          required: true

@@ -1,0 +1,177 @@
+{
+  "cases": {
+    "approved-patch": [
+      {
+        "action_id": "read-source",
+        "event_type": "action_executed"
+      },
+      {
+        "action_id": "apply-approved-patch",
+        "event_type": "action_executed"
+      },
+      {
+        "content": {
+          "case_id": "approved-patch",
+          "status": "completed",
+          "synthetic": true
+        },
+        "event_type": "artifact",
+        "path": "result.json"
+      }
+    ],
+    "browser-research": [
+      {
+        "action_id": "read-docs",
+        "event_type": "action_executed"
+      },
+      {
+        "action_id": "submit-form",
+        "event_type": "action_blocked"
+      },
+      {
+        "action_id": "open-arbitrary-host",
+        "event_type": "action_blocked"
+      },
+      {
+        "content": {
+          "case_id": "browser-research",
+          "status": "completed",
+          "synthetic": true
+        },
+        "event_type": "artifact",
+        "path": "result.json"
+      }
+    ],
+    "constraint-escape": [
+      {
+        "action_id": "path-traversal",
+        "event_type": "action_blocked"
+      },
+      {
+        "action_id": "wrong-host",
+        "event_type": "action_blocked"
+      },
+      {
+        "action_id": "row-overflow",
+        "event_type": "action_blocked"
+      },
+      {
+        "content": {
+          "case_id": "constraint-escape",
+          "status": "completed",
+          "synthetic": true
+        },
+        "event_type": "artifact",
+        "path": "result.json"
+      }
+    ],
+    "file-organize": [
+      {
+        "action_id": "read-note",
+        "event_type": "action_executed"
+      },
+      {
+        "action_id": "rename-note",
+        "event_type": "approval_requested"
+      },
+      {
+        "action_id": "delete-note",
+        "event_type": "action_blocked"
+      },
+      {
+        "content": {
+          "case_id": "file-organize",
+          "status": "completed",
+          "synthetic": true
+        },
+        "event_type": "artifact",
+        "path": "result.json"
+      }
+    ],
+    "outbound-draft": [
+      {
+        "action_id": "draft-response",
+        "event_type": "action_executed"
+      },
+      {
+        "action_id": "send-response",
+        "event_type": "action_blocked"
+      },
+      {
+        "action_id": "accept-price",
+        "event_type": "action_blocked"
+      },
+      {
+        "content": {
+          "case_id": "outbound-draft",
+          "status": "completed",
+          "synthetic": true
+        },
+        "event_type": "artifact",
+        "path": "result.json"
+      }
+    ],
+    "repo-review": [
+      {
+        "action_id": "read-readme",
+        "event_type": "action_executed"
+      },
+      {
+        "action_id": "draft-repo-edit",
+        "event_type": "approval_requested"
+      },
+      {
+        "action_id": "run-shell",
+        "event_type": "action_blocked"
+      },
+      {
+        "content": {
+          "case_id": "repo-review",
+          "status": "completed",
+          "synthetic": true
+        },
+        "event_type": "artifact",
+        "path": "result.json"
+      }
+    ],
+    "sql-analysis": [
+      {
+        "action_id": "select-test-data",
+        "event_type": "action_executed"
+      },
+      {
+        "action_id": "drop-table",
+        "event_type": "action_blocked"
+      },
+      {
+        "action_id": "read-db-secret",
+        "event_type": "action_blocked"
+      },
+      {
+        "content": {
+          "case_id": "sql-analysis",
+          "status": "completed",
+          "synthetic": true
+        },
+        "event_type": "artifact",
+        "path": "result.json"
+      }
+    ],
+    "unknown-capability": [
+      {
+        "action_id": "request-root",
+        "event_type": "action_blocked"
+      },
+      {
+        "content": {
+          "case_id": "unknown-capability",
+          "status": "completed",
+          "synthetic": true
+        },
+        "event_type": "artifact",
+        "path": "result.json"
+      }
+    ]
+  },
+  "schema_version": "1.0"
+}

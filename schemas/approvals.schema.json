@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.test/acah/approvals.schema.json",
+  "title": "Agent Capability Approval Ledger",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "approvals"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "approvals": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["approval_id", "case_id", "action_id", "capability", "parameters_hash", "approved_by", "expires_at"],
+        "properties": {
+          "approval_id": {"type": "string"},
+          "case_id": {"type": "string"},
+          "action_id": {"type": "string"},
+          "capability": {"type": "string"},
+          "parameters_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+          "approved_by": {"type": "string"},
+          "expires_at": {"type": "string"}
+        }
+      }
+    }
+  }
+}

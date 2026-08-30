@@ -1,0 +1,6 @@
+include README.md LICENSE CHANGELOG.md SECURITY.md CONTRIBUTING.md ROADMAP.md CITATION.cff
+recursive-include src/acah/data *.json
+recursive-include schemas *.json
+recursive-include examples *.json *.py *.md
+recursive-include docs *.md
+recursive-include policy *.json
