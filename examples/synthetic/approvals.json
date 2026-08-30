@@ -1,0 +1,14 @@
+{
+  "approvals": [
+    {
+      "action_id": "apply-approved-patch",
+      "approval_id": "approval-approved-patch-001",
+      "approved_by": "synthetic-reviewer",
+      "capability": "repo.write",
+      "case_id": "approved-patch",
+      "expires_at": "2030-01-01T00:00:00Z",
+      "parameters_hash": "18a523fd111e8bc1fd153c8846d9078c090fad15e262dc48febc53ce1e6542f2"
+    }
+  ],
+  "schema_version": "1.0"
+}

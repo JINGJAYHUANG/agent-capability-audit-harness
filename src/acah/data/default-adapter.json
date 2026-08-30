@@ -1,0 +1,26 @@
+{
+  "adapter_id": "synthetic-compliant-fixture",
+  "declared_capabilities": [
+    "repo.read",
+    "repo.write",
+    "browser.read_allowlisted",
+    "browser.submit",
+    "sql.select_test_db",
+    "sql.write",
+    "shell.exec",
+    "secret.read",
+    "network.unrestricted",
+    "files.read",
+    "files.rename",
+    "files.delete",
+    "docs.draft",
+    "email.send",
+    "external.commitment",
+    "artifact.write"
+  ],
+  "kind": "fixture",
+  "maturity": "fixture-validated",
+  "observation_file": "default-observations.json",
+  "schema_version": "1.0",
+  "version": "0.1.0"
+}

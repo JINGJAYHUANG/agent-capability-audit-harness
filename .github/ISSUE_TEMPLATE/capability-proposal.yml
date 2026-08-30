@@ -1,0 +1,27 @@
+name: Capability proposal
+description: Propose a new capability, constraint, Golden Task, or evidence source.
+title: "capability: "
+labels: [enhancement]
+body:
+  - type: textarea
+    attributes:
+      label: Capability boundary
+      description: Define what is allowed, what requires approval, and what is denied.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Positive and adversarial Golden Tasks
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Independent evidence source
+      description: Explain whether observations are self-reported or independently recorded.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: False-positive and false-negative risks
+    validations:
+      required: true

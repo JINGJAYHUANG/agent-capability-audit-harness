@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.test/acah/event.schema.json",
+  "title": "Hash-Chained Audit Event",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["seq", "ts", "run_id", "case_id", "event_type", "source", "payload", "previous_hash", "event_hash"],
+  "properties": {
+    "seq": {"type": "integer", "minimum": 0},
+    "ts": {"type": "string"},
+    "run_id": {"type": "string"},
+    "case_id": {"type": ["string", "null"]},
+    "event_type": {"type": "string"},
+    "source": {"type": "string"},
+    "payload": {"type": "object"},
+    "previous_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "event_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  }
+}

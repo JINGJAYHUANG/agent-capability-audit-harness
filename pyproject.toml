@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agent-capability-audit-harness"
+version = "0.1.0"
+description = "A deny-by-default capability gate and golden-task evaluation harness for AI agents."
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [{name = "JINGJAYHUANG"}]
+keywords = [
+  "ai-agents",
+  "capability-audit",
+  "golden-tasks",
+  "policy-as-code",
+  "evaluation",
+  "audit-log",
+]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Software Development :: Testing",
+  "Topic :: Security",
+]
+dependencies = []
+
+[project.scripts]
+acah = "acah.cli:main"
+
+[project.urls]
+Repository = "https://github.com/JINGJAYHUANG/agent-capability-audit-harness"
+Issues = "https://github.com/JINGJAYHUANG/agent-capability-audit-harness/issues"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+acah = ["data/*.json"]
